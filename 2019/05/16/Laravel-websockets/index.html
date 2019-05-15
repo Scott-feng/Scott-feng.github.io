@@ -140,16 +140,18 @@
 
 
 
-  <meta name="description" content="记录自己的点滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Scott Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Laravel 配合laravel-echo 使用 websockets 参考Laravel Websockets广播系统Build a chat app with laravel 配置123456789101112composer require pusher/pusher-php-server &quot;~3.0&quot;composer require beyondcode/laravel-websocke">
+<meta name="keywords" content="laravel,websockets">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel websockets">
+<meta property="og:url" content="http://yoursite.com/2019/05/16/Laravel-websockets/index.html">
 <meta property="og:site_name" content="Scott Blog">
-<meta property="og:description" content="记录自己的点滴">
+<meta property="og:description" content="Laravel 配合laravel-echo 使用 websockets 参考Laravel Websockets广播系统Build a chat app with laravel 配置123456789101112composer require pusher/pusher-php-server &quot;~3.0&quot;composer require beyondcode/laravel-websocke">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-15T23:02:11.939Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Scott Blog">
-<meta name="twitter:description" content="记录自己的点滴">
+<meta name="twitter:title" content="Laravel websockets">
+<meta name="twitter:description" content="Laravel 配合laravel-echo 使用 websockets 参考Laravel Websockets广播系统Build a chat app with laravel 配置123456789101112composer require pusher/pusher-php-server &quot;~3.0&quot;composer require beyondcode/laravel-websocke">
 
 
 
@@ -159,7 +161,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/16/Laravel-websockets/">
 
 
 
@@ -169,7 +171,7 @@
   };
 </script>
 
-  <title>Scott Blog</title>
+  <title>Laravel websockets | Scott Blog</title>
   
 
 
@@ -217,8 +219,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,7 +257,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -369,9 +370,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -403,10 +404,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/16/Laravel-websockets/" class="post-title-link" itemprop="url">Laravel websockets</a>
+          <h1 class="post-title" itemprop="name headline">Laravel websockets
+
               
             
           </h1>
@@ -488,9 +487,7 @@
       
 
       
-        
-          
-            <p>Laravel 配合laravel-echo 使用 websockets</p>
+        <p>Laravel 配合laravel-echo 使用 websockets</p>
 <p>参考<br><a href="https://docs.beyondco.de/laravel-websockets/" target="_blank" rel="noopener">Laravel Websockets</a><br><a href="https://learnku.com/docs/laravel/5.8/broadcasting/3914" target="_blank" rel="noopener">广播系统</a><br><a href="https://pusher.com/tutorials/chat-laravel" target="_blank" rel="noopener">Build a chat app with laravel</a></p>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">composer <span class="keyword">require</span> pusher/pusher-php-server <span class="string">"~3.0"</span></span><br><span class="line">composer <span class="keyword">require</span> beyondcode/laravel-websockets</span><br><span class="line">composer <span class="keyword">require</span> predis/predis</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// a migration to store statistic information</span></span><br><span class="line">php artisan vendor:publish --provider=<span class="string">"BeyondCode\LaravelWebSockets\WebSocketsServiceProvider"</span> --tag=<span class="string">"migrations"</span></span><br><span class="line"></span><br><span class="line">php artisan migrate</span><br><span class="line"></span><br><span class="line"><span class="comment">// publish the WebSocket configuration file</span></span><br><span class="line">php artisan vendor:publish --provider=<span class="string">"BeyondCode\LaravelWebSockets\WebSocketsServiceProvider"</span> --tag=<span class="string">"config"</span></span><br></pre></td></tr></table></figure>
 <p>.env</p>
@@ -536,8 +533,6 @@
 <li>App\Providers\BroadcastServiceProvider::class要取消注释。</li>
 </ul>
 
-          
-        
       
     </div>
 
@@ -558,166 +553,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/15/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Scott Shen">
-      <meta itemprop="description" content="记录自己的点滴">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Scott Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/15/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-05-15 19:25:16 / Modified: 21:55:41" itemprop="dateCreated datePublished" datetime="2019-05-15T19:25:16+08:00">2019-05-15</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/laravel/" rel="tag"># laravel</a>
           
-            
-            
+            <a href="/tags/websockets/" rel="tag"># websockets</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/15/hello-world/#more" rel="contents">
-                Read more &raquo;
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/15/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
+            
+          </div>
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -727,14 +594,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -754,8 +622,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -870,6 +747,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端部分"><span class="nav-number">2.</span> <span class="nav-text">后端部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装前端依赖"><span class="nav-number">3.</span> <span class="nav-text">安装前端依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Laravel-WebSocket-server"><span class="nav-number">4.</span> <span class="nav-text">启动Laravel WebSocket server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Debugging"><span class="nav-number">5.</span> <span class="nav-text">Debugging</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1000,6 +894,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -1015,6 +913,8 @@
 
   
 
+
+  
 
 
   
