@@ -140,18 +140,18 @@
 
 
 
-  <meta name="description" content="Laravel 配合laravel-echo 使用 websockets 参考Laravel Websockets广播系统Build a chat app with laravel 配置123456789101112composer require pusher/pusher-php-server &quot;~3.0&quot;composer require beyondcode/laravel-websocke">
+  <meta name="description" content="Laravel 配合laravel-echo 使用 websockets 参考Laravel Websockets广播系统Build a chat app with laravel">
 <meta name="keywords" content="laravel,websockets">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Laravel websockets">
 <meta property="og:url" content="http://yoursite.com/2019/05/16/Laravel-websockets/index.html">
 <meta property="og:site_name" content="Scott Blog">
-<meta property="og:description" content="Laravel 配合laravel-echo 使用 websockets 参考Laravel Websockets广播系统Build a chat app with laravel 配置123456789101112composer require pusher/pusher-php-server &quot;~3.0&quot;composer require beyondcode/laravel-websocke">
+<meta property="og:description" content="Laravel 配合laravel-echo 使用 websockets 参考Laravel Websockets广播系统Build a chat app with laravel">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-15T23:02:11.939Z">
+<meta property="og:updated_time" content="2019-05-15T23:21:58.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel websockets">
-<meta name="twitter:description" content="Laravel 配合laravel-echo 使用 websockets 参考Laravel Websockets广播系统Build a chat app with laravel 配置123456789101112composer require pusher/pusher-php-server &quot;~3.0&quot;composer require beyondcode/laravel-websocke">
+<meta name="twitter:description" content="Laravel 配合laravel-echo 使用 websockets 参考Laravel Websockets广播系统Build a chat app with laravel">
 
 
 
@@ -430,7 +430,7 @@
                 
               
 
-              <time title="Created: 2019-05-16 07:00:55 / Modified: 07:02:11" itemprop="dateCreated datePublished" datetime="2019-05-16T07:00:55+08:00">2019-05-16</time>
+              <time title="Created: 2019-05-16 07:00:55 / Modified: 07:21:58" itemprop="dateCreated datePublished" datetime="2019-05-16T07:00:55+08:00">2019-05-16</time>
             
 
             
@@ -488,7 +488,7 @@
 
       
         <p>Laravel 配合laravel-echo 使用 websockets</p>
-<p>参考<br><a href="https://docs.beyondco.de/laravel-websockets/" target="_blank" rel="noopener">Laravel Websockets</a><br><a href="https://learnku.com/docs/laravel/5.8/broadcasting/3914" target="_blank" rel="noopener">广播系统</a><br><a href="https://pusher.com/tutorials/chat-laravel" target="_blank" rel="noopener">Build a chat app with laravel</a></p>
+<p>参考<br><a href="https://docs.beyondco.de/laravel-websockets/" target="_blank" rel="noopener">Laravel Websockets</a><br><a href="https://learnku.com/docs/laravel/5.8/broadcasting/3914" target="_blank" rel="noopener">广播系统</a><br><a href="https://pusher.com/tutorials/chat-laravel" target="_blank" rel="noopener">Build a chat app with laravel</a><br><a id="more"></a></p>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">composer <span class="keyword">require</span> pusher/pusher-php-server <span class="string">"~3.0"</span></span><br><span class="line">composer <span class="keyword">require</span> beyondcode/laravel-websockets</span><br><span class="line">composer <span class="keyword">require</span> predis/predis</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// a migration to store statistic information</span></span><br><span class="line">php artisan vendor:publish --provider=<span class="string">"BeyondCode\LaravelWebSockets\WebSocketsServiceProvider"</span> --tag=<span class="string">"migrations"</span></span><br><span class="line"></span><br><span class="line">php artisan migrate</span><br><span class="line"></span><br><span class="line"><span class="comment">// publish the WebSocket configuration file</span></span><br><span class="line">php artisan vendor:publish --provider=<span class="string">"BeyondCode\LaravelWebSockets\WebSocketsServiceProvider"</span> --tag=<span class="string">"config"</span></span><br></pre></td></tr></table></figure>
 <p>.env</p>
 <blockquote>
