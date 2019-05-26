@@ -84,3 +84,9 @@ deploy:
   # repo: https://gh_token@github.com/Scott-feng/scott-feng.github.io.git
   repo: git@github.com:Scott-feng/scott-feng.github.io.git
   branch: master
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000

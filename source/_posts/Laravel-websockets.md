@@ -220,7 +220,7 @@ window.Echo.private('chat')
 
 编译css,js
 
-### 启动Laravel WebSocket server
+### 启动WebSocket server
 >php artisan websockets:serve
 
 
