@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Tech,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Scott Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="微信小程序分别使用手机号和微信登录参考：  easy-sms 短信提供商 手机注册验证码 图片验证码  使用手机登录发送手机短信安装easy-sms123$ composer require &quot;overtrue/easy-sms&quot;# config中添加easysms.php 配置文件$ touch config/easysms.php">
+<meta name="keywords" content="Tech">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序手机登录">
+<meta property="og:url" content="http://yoursite.com/2019/06/15/微信小程序登录/index.html">
+<meta property="og:site_name" content="Scott Blog">
+<meta property="og:description" content="微信小程序分别使用手机号和微信登录参考：  easy-sms 短信提供商 手机注册验证码 图片验证码  使用手机登录发送手机短信安装easy-sms123$ composer require &quot;overtrue/easy-sms&quot;# config中添加easysms.php 配置文件$ touch config/easysms.php">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g492aeyltbj31ka0tit9m.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4943uopv2j31i70u00xs.jpg">
+<meta property="og:updated_time" content="2019-06-21T23:21:47.322Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序手机登录">
+<meta name="twitter:description" content="微信小程序分别使用手机号和微信登录参考：  easy-sms 短信提供商 手机注册验证码 图片验证码  使用手机登录发送手机短信安装easy-sms123$ composer require &quot;overtrue/easy-sms&quot;# config中添加easysms.php 配置文件$ touch config/easysms.php">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g492aeyltbj31ka0tit9m.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/15/微信小程序登录/">
+
+
+
+
+
+  <title>微信小程序手机登录 | Scott Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Scott Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/15/微信小程序登录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Scott Shen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Scott Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">微信小程序手机登录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-15T21:38:11+08:00">
+                2019-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微信小程序/" itemprop="url" rel="index">
+                    <span itemprop="name">微信小程序</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微信小程序/api/" itemprop="url" rel="index">
+                    <span itemprop="name">api</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微信小程序/api/laravel/" itemprop="url" rel="index">
+                    <span itemprop="name">laravel</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>微信小程序分别使用<strong>手机号</strong>和<strong>微信</strong>登录<br>参考：</p>
+<ul>
+<li><a href="https://github.com/overtrue/easy-sms" target="_blank" rel="noopener">easy-sms</a></li>
+<li><a href="https://learnku.com/courses/laravel-advance-training/5.5/sms-provider/791" target="_blank" rel="noopener">短信提供商</a></li>
+<li><a href="https://learnku.com/courses/laravel-advance-training/5.8/development-of-mobile-phone-registration-function/3995" target="_blank" rel="noopener">手机注册验证码</a></li>
+<li><a href="https://learnku.com/courses/laravel-advance-training/5.8/picture-verification-code/3998" target="_blank" rel="noopener">图片验证码</a></li>
+</ul>
+<h2 id="使用手机登录"><a href="#使用手机登录" class="headerlink" title="使用手机登录"></a>使用手机登录</h2><h3 id="发送手机短信"><a href="#发送手机短信" class="headerlink" title="发送手机短信"></a>发送手机短信</h3><h4 id="安装easy-sms"><a href="#安装easy-sms" class="headerlink" title="安装easy-sms"></a>安装easy-sms</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ composer require <span class="string">"overtrue/easy-sms"</span></span><br><span class="line"><span class="comment"># config中添加easysms.php 配置文件</span></span><br><span class="line">$ touch config/easysms.php</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><em>config.easysms.php</em><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="comment">// HTTP 请求的超时时间（秒）</span></span><br><span class="line">    <span class="string">'timeout'</span> =&gt; <span class="number">5.0</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 默认发送配置</span></span><br><span class="line">    <span class="string">'default'</span> =&gt; [</span><br><span class="line">        <span class="comment">// 网关调用策略，默认：顺序调用</span></span><br><span class="line">        <span class="string">'strategy'</span> =&gt; \Overtrue\EasySms\Strategies\OrderStrategy::class,</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 默认可用的发送网关</span></span><br><span class="line">        <span class="string">'gateways'</span> =&gt; [</span><br><span class="line">            <span class="string">'qcloud'</span>,</span><br><span class="line">        ],</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// 可用的网关配置</span></span><br><span class="line">    <span class="string">'gateways'</span> =&gt; [</span><br><span class="line">        <span class="string">'errorlog'</span> =&gt; [</span><br><span class="line">            <span class="string">'file'</span> =&gt; <span class="string">'/tmp/easy-sms.log'</span>,</span><br><span class="line">        ],</span><br><span class="line">        <span class="string">'qcloud'</span> =&gt; [</span><br><span class="line">            <span class="string">'sdk_app_id'</span> =&gt; env(<span class="string">'QCLOUD_APP_ID'</span>), <span class="comment">// SDK APP ID</span></span><br><span class="line">            <span class="string">'app_key'</span> =&gt; env(<span class="string">'QCLOUD_APP_KEY'</span>), <span class="comment">// APP KEY</span></span><br><span class="line">            <span class="string">'sign_name'</span> =&gt; env(<span class="string">'QCLOUD_APP_SIGN_NAME'</span>), <span class="comment">// 短信签名，如果使用默认签名，该字段可缺省（对应官方文档中的sign）</span></span><br><span class="line">        ],</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ php artisan make:provider EasySmsServiceProvider</span><br></pre></td></tr></table></figure>
+<h4 id="创建一个-ServiceProvider"><a href="#创建一个-ServiceProvider" class="headerlink" title="创建一个 ServiceProvider"></a>创建一个 ServiceProvider</h4><p><em>app/providers/EasySmsServiceProvider.php</em><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Providers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">ServiceProvider</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Overtrue</span>\<span class="title">EasySms</span>\<span class="title">EasySms</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EasySmsServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Register services.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;app-&gt;singleton(EasySms::class, <span class="function"><span class="keyword">function</span> <span class="params">($app)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EasySms(config(<span class="string">'easysms'</span>));</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">$this</span>-&gt;app-&gt;alias(EasySms::class, <span class="string">'easysms'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Bootstrap services.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>修改EasySmsServiceProvider.php</p>
+<h4 id="获取SDK-AppID，App-Key"><a href="#获取SDK-AppID，App-Key" class="headerlink" title="获取SDK AppID，App Key"></a>获取SDK AppID，App Key</h4><p><a href="https://console.cloud.tencent.com/sms/smslist" target="_blank" rel="noopener">腾讯云短信</a>获取SDK AppID，App Key<br><strong>注意：</strong>不同的应用有不同的AppID，App Key,要对应。调试时没有对应，导致发送失败。</p>
+<p><em>.env</em><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QCLOUD_APP_ID=</span><br><span class="line">QCLOUD_APP_KEY=</span><br><span class="line">QCLOUD_APP_SIGN_NAME=scottyun</span><br></pre></td></tr></table></figure></p>
+<h4 id="发送短信"><a href="#发送短信" class="headerlink" title="发送短信"></a>发送短信</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan tinker</span><br></pre></td></tr></table></figure>
+<p>进入tinker<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; $sms = app(&apos;easysms&apos;);</span><br><span class="line">&gt;&gt; $sms-&gt;send(13212345678, [</span><br><span class="line">        &apos;content&apos;  =&gt; &apos;【Lbbs社区】您的验证码是1234。如非本人操作，请忽略本短信&apos;,</span><br><span class="line">    ]);</span><br></pre></td></tr></table></figure></p>
+<p>国内短信由签名+正文组成，【Lbbs社区】是短信签名;”您的验证码是{1}。如非本人操作，请忽略本短信”短信正文</p>
+<h3 id="修改数据结构"><a href="#修改数据结构" class="headerlink" title="修改数据结构"></a>修改数据结构</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan make:migration add_phone_to_users_table --table=users</span><br></pre></td></tr></table></figure>
+<p><em>database/migrations/{your_date}_add_phone_to_users_table.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Facades</span>\<span class="title">Schema</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Schema</span>\<span class="title">Blueprint</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Migrations</span>\<span class="title">Migration</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AddPhoneToUsersTable</span> <span class="keyword">extends</span> <span class="title">Migration</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Run the migrations.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">up</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Schema::table(<span class="string">'users'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</span><br><span class="line">            $table-&gt;string(<span class="string">'phone'</span>)-&gt;nullable()-&gt;unique()-&gt;after(<span class="string">'name'</span>);</span><br><span class="line">            $table-&gt;string(<span class="string">'email'</span>)-&gt;nullable()-&gt;change();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Reverse the migrations.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">down</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Schema::table(<span class="string">'users'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</span><br><span class="line">            $table-&gt;dropColumn(<span class="string">'phone'</span>);</span><br><span class="line">            $table-&gt;string(<span class="string">'email'</span>)-&gt;nullable(<span class="keyword">false</span>)-&gt;change();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改数据表的字段属性</span></span><br><span class="line">$ composer require doctrine/dbal</span><br><span class="line">$ php artisan migrate</span><br></pre></td></tr></table></figure>
+<h3 id="短信验证码接口"><a href="#短信验证码接口" class="headerlink" title="短信验证码接口"></a>短信验证码接口</h3><p>1.输入手机号，手机短信验证码发送<br>2.填入短信验证码，验证是否成功<br>3.成功完成注册，创建用户</p>
+<h4 id="新建基类"><a href="#新建基类" class="headerlink" title="新建基类"></a>新建基类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ php artisan make:controller Api/Controller</span><br></pre></td></tr></table></figure>
+<p><em>app/Http/Controllers/Api/Controller.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Api</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Controller</span> <span class="title">as</span> <span class="title">BaseController</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dingo</span>\<span class="title">Api</span>\<span class="title">Routing</span>\<span class="title">Helpers</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Controller</span> <span class="keyword">extends</span> <span class="title">BaseController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">Helpers</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>routes/api.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line">$api = app(<span class="string">'Dingo\Api\Routing\Router'</span>);</span><br><span class="line"></span><br><span class="line">$api-&gt;version(<span class="string">'v1'</span>, [</span><br><span class="line">    <span class="string">'namespace'</span> =&gt; <span class="string">'App\Http\Controllers\Api'</span></span><br><span class="line">], <span class="function"><span class="keyword">function</span><span class="params">($api)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 短信验证码</span></span><br><span class="line">    $api-&gt;post(<span class="string">'verificationCodes'</span>, <span class="string">'VerificationCodesController@store'</span>)</span><br><span class="line">        -&gt;name(<span class="string">'api.verificationCodes.store'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="创建验证类"><a href="#创建验证类" class="headerlink" title="创建验证类"></a>创建验证类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ php artisan make:request Api/VerificationCodeRequest</span><br><span class="line"><span class="comment"># 使用Dingo 的 FormRequest</span></span><br><span class="line">$ php artisan make:request Api/FormRequest</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*app/Http/Requests/Api/FormRequest.php*</span><br><span class="line"></span><br><span class="line">```php</span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace App\Http\Requests\Api;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">use Dingo\Api\Http\FormRequest as BaseFormRequest;</span><br><span class="line"></span><br><span class="line">class FormRequest extends BaseFormRequest</span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * Determine if the user is authorized to make this request.</span><br><span class="line">     *</span><br><span class="line">     * @return bool</span><br><span class="line">     */</span><br><span class="line">    public function authorize()</span><br><span class="line">    &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>app/Http/Requests/Api/VerificationCodeRequest.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//移除自带的 FormRequest</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Requests</span>\<span class="title">Api</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VerificationCodeRequest</span> <span class="keyword">extends</span> <span class="title">FormRequest</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">rules</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">            <span class="string">'phone'</span> =&gt; [</span><br><span class="line">                <span class="string">'required'</span>,</span><br><span class="line">                <span class="string">'regex:/^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199)\d&#123;8&#125;$/'</span>,</span><br><span class="line">                <span class="string">'unique:users'</span></span><br><span class="line">            ]</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="创建控制器"><a href="#创建控制器" class="headerlink" title="创建控制器"></a>创建控制器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ php artisan make:controller Api/VerificationCodesController</span><br></pre></td></tr></table></figure>
+<p><em>app/Http/Controllers/Api/VerificationCodesController.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Api</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Requests</span>\<span class="title">Api</span>\<span class="title">VerificationCodeRequest</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Overtrue</span>\<span class="title">EasySms</span>\<span class="title">EasySms</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VerificationCodesController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">store</span><span class="params">(VerificationCodeRequest $request,EasySms $easySms)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $phone = $request-&gt;phone;</span><br><span class="line">        <span class="comment"># 开发环境验证码1234</span></span><br><span class="line">        <span class="keyword">if</span> (!app()-&gt;environment(<span class="string">'production'</span>)) &#123;</span><br><span class="line">            $code = <span class="string">'1234'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            $code = str_pad(random_int(<span class="number">1</span>, <span class="number">9999</span>), <span class="number">4</span>, <span class="number">0</span>, STR_PAD_LEFT);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                 $easySms-&gt;send($phone, [</span><br><span class="line">                    <span class="string">'content'</span> =&gt; <span class="string">"【scottyun】larabbs短信验证码 &#123;$code&#125;，不是本人请忽略"</span></span><br><span class="line">                ]);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (\Overtrue\EasySms\Exceptions\NoGatewayAvailableException $exception) &#123;</span><br><span class="line">                $message = $exception-&gt;getException(<span class="string">'qcloud'</span>)-&gt;getMessage();</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;response-&gt;errorInternal($message ?: <span class="string">'短信发送异常'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $key = <span class="string">'verificationCode_'</span> . \EasyWeChat\Kernel\Support\str_random(<span class="number">15</span>);</span><br><span class="line">        $expiredAt = now()-&gt;addMinutes(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 验证码10mins过期</span></span><br><span class="line">        \Cache::put($key, [<span class="string">'phone'</span> =&gt; $phone, <span class="string">'code'</span> =&gt; $code], $expiredAt);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;response-&gt;array([</span><br><span class="line">            <span class="string">'key'</span> =&gt; $key,</span><br><span class="line">            <span class="string">'expired'</span> =&gt; $expiredAt,</span><br><span class="line">        ])-&gt;setStatusCode(<span class="number">201</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>生成四位随机码，用easysms发送</li>
+<li>验证码放入缓存有效期10 mins</li>
+<li>返回 key和过期时间，缓存中存储了phone ,code;和用户输入的验证码比对</li>
+</ul>
+<h3 id="用户注册接口"><a href="#用户注册接口" class="headerlink" title="用户注册接口"></a>用户注册接口</h3><p><em>routes/api.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">...</span><br><span class="line">$api-&gt;version(<span class="string">'v1'</span>, [</span><br><span class="line">    <span class="string">'namespace'</span> =&gt; <span class="string">'App\Http\Controllers\Api'</span></span><br><span class="line">], <span class="function"><span class="keyword">function</span><span class="params">($api)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 短信验证码</span></span><br><span class="line">    $api-&gt;post(<span class="string">'verificationCodes'</span>, <span class="string">'VerificationCodesController@store'</span>)</span><br><span class="line">        -&gt;name(<span class="string">'api.verificationCodes.store'</span>);</span><br><span class="line">    <span class="comment">// 用户注册</span></span><br><span class="line">    $api-&gt;post(<span class="string">'users'</span>, <span class="string">'UsersController@store'</span>)</span><br><span class="line">        -&gt;name(<span class="string">'api.users.store'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="创建控制器和验证类"><a href="#创建控制器和验证类" class="headerlink" title="创建控制器和验证类"></a>创建控制器和验证类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ php artisan make:controller Api/UsersController</span><br><span class="line">$ php artisan make:request Api/UserRequest</span><br></pre></td></tr></table></figure>
+<p><em>app/Http/Requests/Api/UserRequest.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Requests</span>\<span class="title">Api</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserRequest</span> <span class="keyword">extends</span> <span class="title">FormRequest</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get the validation rules that apply to the request.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">rules</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">            <span class="string">'name'</span> =&gt; <span class="string">'required|between:3,25|regex:/^[A-Za-z0-9\-\_]+$/|unique:users,name'</span>,</span><br><span class="line">            <span class="string">'password'</span> =&gt; <span class="string">'required|string|min:6'</span>,</span><br><span class="line">            <span class="string">'verification_key'</span> =&gt; <span class="string">'required|string'</span>,</span><br><span class="line">            <span class="string">'verification_code'</span> =&gt; <span class="string">'required|string'</span>,</span><br><span class="line"></span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">attributes</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">            <span class="string">'verification_key'</span> =&gt; <span class="string">'短信验证码 key'</span>,</span><br><span class="line">            <span class="string">'verification_code'</span> =&gt; <span class="string">'短信验证码'</span>,</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用户注册提交的数据，name,password,verification_code。verification_key由$api-&gt;post(‘verificationCodes’, ‘VerificationCodesController@store’)产生。</p>
+<p><em>app/Http/Controllers/Api/UsersController.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Api</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Requests</span>\<span class="title">Api</span>\<span class="title">UserRequest</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">User</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UsersController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">store</span><span class="params">(UserRequest $request)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $verifyData = \Cache::get($request-&gt;verification_key);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!$verifyData) &#123;</span><br><span class="line">        <span class="comment">//422 表示提交的参数错误</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;response-&gt;error(<span class="string">'验证码已失效'</span>, <span class="number">422</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!hash_equals($verifyData[<span class="string">'code'</span>], $request-&gt;verification_code)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;response-&gt;errorUnauthorized(<span class="string">'验证码错误'</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $user = User::create([</span><br><span class="line">            <span class="string">'name'</span> =&gt; $request-&gt;name,</span><br><span class="line">            <span class="string">'phone'</span> =&gt; $request-&gt;phone,</span><br><span class="line">            <span class="string">'password'</span> =&gt; bcrypt($request-&gt;password),</span><br><span class="line">        ]);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//清空缓存</span></span><br><span class="line">        \Cache::forget($request-&gt;verification_key);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;response-&gt;created();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>判断验证码是否失效，再判断验证码是否正确。最后完成用户注册，清空缓存。</p>
+<p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g492aeyltbj31ka0tit9m.jpg" alt="用户注册"></p>
+<h3 id="图片验证码"><a href="#图片验证码" class="headerlink" title="图片验证码"></a>图片验证码</h3><p>短信验证码发送之前要输入验证码。</p>
+<h4 id="安装gregwar-captcha"><a href="#安装gregwar-captcha" class="headerlink" title="安装gregwar/captcha"></a>安装gregwar/captcha</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ composer require gregwar/captcha</span><br></pre></td></tr></table></figure>
+<p><em>routes/api.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 图片验证码</span></span><br><span class="line">   $api-&gt;post(<span class="string">'captchas'</span>, <span class="string">'CaptchasController@store'</span>)</span><br><span class="line">       -&gt;name(<span class="string">'api.captchas.store'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="创建控制器和验证类-1"><a href="#创建控制器和验证类-1" class="headerlink" title="创建控制器和验证类"></a>创建控制器和验证类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ php artisan make:controller Api/CaptchasController</span><br><span class="line">$ php artisan make:request Api/CaptchaRequest</span><br></pre></td></tr></table></figure>
+<p><em>app/Http/Requests/Api/CaptchaRequest.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Requests</span>\<span class="title">Api</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CaptchaRequest</span> <span class="keyword">extends</span> <span class="title">FormRequest</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get the validation rules that apply to the request.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">rules</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">            <span class="string">'phone'</span> =&gt; [</span><br><span class="line">                <span class="string">'required'</span>,</span><br><span class="line">                <span class="string">'regex:/^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199)\d&#123;8&#125;$/'</span>,</span><br><span class="line">                <span class="string">'unique:users'</span></span><br><span class="line">            ]</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>app/Http/Controllers/Api/CaptchasController.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Api</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Requests</span>\<span class="title">Api</span>\<span class="title">CaptchaRequest</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Gregwar</span>\<span class="title">Captcha</span>\<span class="title">CaptchaBuilder</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CaptchasController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">store</span><span class="params">(CaptchaRequest $request,CaptchaBuilder $captchaBuilder)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $key = <span class="string">'captcha-'</span>.\EasyWeChat\Kernel\Support\str_random(<span class="number">15</span>);</span><br><span class="line">        $phone = $request-&gt;phone;</span><br><span class="line"></span><br><span class="line">        $captcha = $captchaBuilder-&gt;build();</span><br><span class="line">        $expiredAt = now()-&gt;addMinutes(<span class="number">2</span>);</span><br><span class="line">        \Cache::put($key,[<span class="string">'phone'</span> =&gt; $phone,<span class="string">'code'</span> =&gt; $captcha-&gt;getPhrase()],$expiredAt);</span><br><span class="line"></span><br><span class="line">        $result = [</span><br><span class="line">            <span class="string">'captcha_key'</span> =&gt; $key,</span><br><span class="line">            <span class="string">'expired_at'</span> =&gt; $expiredAt,</span><br><span class="line">            <span class="string">'captcha_image_content'</span> =&gt; $captcha-&gt;inline(),</span><br><span class="line">        ];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;response-&gt;array($result)-&gt;setStatusCode(<span class="number">201</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>生成验证码，和phone 一起存入缓存中。返回key，过期时间，给用户看到的验证码图片。</p>
+<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4943uopv2j31i70u00xs.jpg" alt><br>注册码生成</p>
+<h4 id="修改短信验证码接口"><a href="#修改短信验证码接口" class="headerlink" title="修改短信验证码接口"></a>修改短信验证码接口</h4><p><em>app/Http/Requests/Api/VerificationCodeRequest.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Requests</span>\<span class="title">Api</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VerificationCodeRequest</span> <span class="keyword">extends</span> <span class="title">FormRequest</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get the validation rules that apply to the request.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">rules</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">            <span class="string">'captcha_key'</span> =&gt; <span class="string">'required|string'</span>,</span><br><span class="line">            <span class="string">'captcha_code'</span> =&gt; <span class="string">'required|string'</span>,</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">attributes</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">            <span class="string">'captcha_key'</span> =&gt; <span class="string">'图片验证码 key'</span>,</span><br><span class="line">            <span class="string">'captcha_code'</span> =&gt; <span class="string">'图片验证码'</span>,</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过图片验证码验证是否发送短信给用户。</p>
+<p><em>app/Http/Controllers/Api/VerificationCodesController.php</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Api</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Requests</span>\<span class="title">Api</span>\<span class="title">VerificationCodeRequest</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Overtrue</span>\<span class="title">EasySms</span>\<span class="title">EasySms</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VerificationCodesController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">store</span><span class="params">(VerificationCodeRequest $request,EasySms $easySms)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//catcha_key中存储 phone 和图片验证码文本</span></span><br><span class="line">        $captchaData = \Cache::get($request-&gt;captcha_key);</span><br><span class="line">        <span class="comment">//验证码是否失效</span></span><br><span class="line">        <span class="keyword">if</span> (!$captchaData) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;response-&gt;error(<span class="string">'图片验证码已失效'</span>,<span class="number">422</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//验证码是否输入正确</span></span><br><span class="line">        <span class="keyword">if</span> (!hash_equals($captchaData[<span class="string">'code'</span>],$request-&gt;captcha_code)) &#123;</span><br><span class="line">            \Cache::forget($request-&gt;captcha_key);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;response-&gt;errorUnauthorized(<span class="string">'验证码错误'</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $phone = $captchaData[<span class="string">'phone'</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!app()-&gt;environment(<span class="string">'production'</span>)) &#123;</span><br><span class="line">            $code = <span class="string">'1234'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            $code = str_pad(random_int(<span class="number">1</span>, <span class="number">9999</span>), <span class="number">4</span>, <span class="number">0</span>, STR_PAD_LEFT);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                 $easySms-&gt;send($phone, [</span><br><span class="line">                    <span class="string">'content'</span> =&gt; <span class="string">"【scottyun】larabbs短信验证码 &#123;$code&#125;，不是本人请忽略"</span></span><br><span class="line">                ]);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (\Overtrue\EasySms\Exceptions\NoGatewayAvailableException $exception) &#123;</span><br><span class="line">                $message = $exception-&gt;getException(<span class="string">'qcloud'</span>)-&gt;getMessage();</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;response-&gt;errorInternal($message ?: <span class="string">'短信发送异常'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $key = <span class="string">'verificationCode_'</span> . \EasyWeChat\Kernel\Support\str_random(<span class="number">15</span>);</span><br><span class="line">        $expiredAt = now()-&gt;addMinutes(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">        \Cache::put($key, [<span class="string">'phone'</span> =&gt; $phone, <span class="string">'code'</span> =&gt; $code], $expiredAt);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;response-&gt;array([</span><br><span class="line">            <span class="string">'key'</span> =&gt; $key,</span><br><span class="line">            <span class="string">'expired'</span> =&gt; $expiredAt-&gt;toDateString(),</span><br><span class="line">        ])-&gt;setStatusCode(<span class="number">201</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Tech/" rel="tag"># Tech</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/01/Laravel-Passport/" rel="next" title="Laravel Passport">
+                <i class="fa fa-chevron-left"></i> Laravel Passport
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/22/微信小程序微信登录/" rel="prev" title="微信小程序微信登录">
+                微信小程序微信登录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Scott Shen</p>
+              <p class="site-description motion-element" itemprop="description">记录自己的点滴</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Scott-feng" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tryqtyl2009@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用手机登录"><span class="nav-number">1.</span> <span class="nav-text">使用手机登录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发送手机短信"><span class="nav-number">1.1.</span> <span class="nav-text">发送手机短信</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装easy-sms"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装easy-sms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个-ServiceProvider"><span class="nav-number">1.1.2.</span> <span class="nav-text">创建一个 ServiceProvider</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取SDK-AppID，App-Key"><span class="nav-number">1.1.3.</span> <span class="nav-text">获取SDK AppID，App Key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送短信"><span class="nav-number">1.1.4.</span> <span class="nav-text">发送短信</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改数据结构"><span class="nav-number">1.2.</span> <span class="nav-text">修改数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#短信验证码接口"><span class="nav-number">1.3.</span> <span class="nav-text">短信验证码接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新建基类"><span class="nav-number">1.3.1.</span> <span class="nav-text">新建基类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建验证类"><span class="nav-number">1.3.2.</span> <span class="nav-text">创建验证类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建控制器"><span class="nav-number">1.3.3.</span> <span class="nav-text">创建控制器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户注册接口"><span class="nav-number">1.4.</span> <span class="nav-text">用户注册接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建控制器和验证类"><span class="nav-number">1.4.1.</span> <span class="nav-text">创建控制器和验证类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片验证码"><span class="nav-number">1.5.</span> <span class="nav-text">图片验证码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装gregwar-captcha"><span class="nav-number">1.5.1.</span> <span class="nav-text">安装gregwar/captcha</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建控制器和验证类-1"><span class="nav-number">1.5.2.</span> <span class="nav-text">创建控制器和验证类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改短信验证码接口"><span class="nav-number">1.5.3.</span> <span class="nav-text">修改短信验证码接口</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Scott Shen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
