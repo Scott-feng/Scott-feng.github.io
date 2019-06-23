@@ -178,11 +178,6 @@ class AuthController extends Controller
                 $tokenResult->token->expires_at
             )->toDateTimeString()
         ]);
-
-
-
-
-
     }
 
     public function logout(Request $request)
@@ -201,7 +196,7 @@ class AuthController extends Controller
 }
 
 ```
-public function login(Request $request)中的
+`public function login(Request $request)`中的
 
 `$tokenResult = $user->createToken('Personal Access Token');`
 
@@ -215,8 +210,9 @@ $tokenResult的数据结构
 "expires_at":"2020-06-01 02:30:45"}
 } 
 ```
-logout调用
+`public function logout(Request $request)`调用
 `$request->user()->token()->revoke();`
+注销用户
 
 ### Postman测试
 
