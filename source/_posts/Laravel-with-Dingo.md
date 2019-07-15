@@ -1,10 +1,10 @@
 ---
 title: Laravel with Dingo
 date: 2019-07-13 17:14:41
-categories:
+tags:
   - laravel
   - dingo
-tags:
+categories:
   - Tech
 ---
  Laravel使用Dingo扩展包
