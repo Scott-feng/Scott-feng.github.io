@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="algorithm,linkedlist,">
 
 
 
@@ -125,16 +125,20 @@
 
 
 
-<meta name="description" content="记录自己的点滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Scott Blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta name="description" content="LinkedList 使用快慢指针寻找链表的中点,遍历一遍链表。参考链接：  middle-of-the-linked-list">
+<meta name="keywords" content="algorithm,linkedlist">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LinkedList">
+<meta property="og:url" content="http://yoursite.com/2019/12/19/LinkedList/index.html">
 <meta property="og:site_name" content="Scott Blog">
-<meta property="og:description" content="记录自己的点滴">
+<meta property="og:description" content="LinkedList 使用快慢指针寻找链表的中点,遍历一遍链表。参考链接：  middle-of-the-linked-list">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190621135246/Find-the-middle-of-a-given-linked-list-in-C-and-Java14.png">
+<meta property="og:updated_time" content="2019-12-19T14:00:43.975Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Scott Blog">
-<meta name="twitter:description" content="记录自己的点滴">
+<meta name="twitter:title" content="LinkedList">
+<meta name="twitter:description" content="LinkedList 使用快慢指针寻找链表的中点,遍历一遍链表。参考链接：  middle-of-the-linked-list">
+<meta name="twitter:image" content="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190621135246/Find-the-middle-of-a-given-linked-list-in-C-and-Java14.png">
 
 
 
@@ -164,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/2/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/19/LinkedList/">
 
 
 
 
 
-  <title>Scott Blog</title>
+  <title>LinkedList | Scott Blog</title>
   
 
 
@@ -189,8 +193,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -325,9 +328,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -340,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/Laravel-ElasticSearch-Scout/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/19/LinkedList/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Scott Shen">
@@ -357,9 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/17/Laravel-ElasticSearch-Scout/" itemprop="url">Laravel ElasticSearch Scout</a></h1>
+          <h1 class="post-title" itemprop="name headline">LinkedList</h1>
         
 
         <div class="post-meta">
@@ -371,8 +372,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-17T21:38:01+08:00">
-                2019-05-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-19T21:25:34+08:00">
+                2019-12-19
               </time>
             
 
@@ -431,24 +432,13 @@
       
 
       
-        
-          <p>Laravel 中使用Elasticsearch 结合Scout,实现全文搜索</p>
-<p>参考:</p>
+        <p>LinkedList 使用快慢指针寻找链表的中点,遍历一遍链表。<br>参考链接：</p>
 <ul>
-<li><a href="https://www.einsition.com/article/7/details" target="_blank" rel="noopener">Laravel Scout+Elastic</a></li>
-<li><a href="https://github.com/ErickTamayo/laravel-scout-elastic" target="_blank" rel="noopener">tamayo/laravel-scout-elastic
-</a></li>
+<li><a href="https://www.geeksforgeeks.org/write-a-c-function-to-print-the-middle-of-the-linked-list/" target="_blank" rel="noopener">middle-of-the-linked-list</a></li>
 </ul>
-<h3 id="安装composer依赖"><a href="#安装composer依赖" class="headerlink" title="安装composer依赖"></a>安装composer依赖</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">composer <span class="keyword">require</span> tamayo/laravel-scout-elastic</span><br><span class="line">composer <span class="keyword">require</span> laravel/scout</span><br></pre></td></tr></table></figure>
-<p>config/app.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'providers'</span> =&gt; [</span><br><span class="line">    ...</span><br><span class="line">    Laravel\Scout\ScoutServiceProvider::class,</span><br><span class="line">    ...</span><br><span class="line">    ScoutEngines\Elasticsearch\ElasticsearchProvider::class,</span><br><span class="line">],</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/17/Laravel-ElasticSearch-Scout/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190621135246/Find-the-middle-of-a-given-linked-list-in-C-and-Java14.png" alt="快慢指针"><br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java program to find middle of linked list</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    Node head; <span class="comment">// head of linked list</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Linked list node */</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> data;</span><br><span class="line">        Node next;</span><br><span class="line">        Node(<span class="keyword">int</span> d)</span><br><span class="line">        &#123;</span><br><span class="line">            data = d;</span><br><span class="line">            next = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Function to print middle of linked list */</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 快慢指针，同时开跑，快指针的速度是慢指针的2倍</span></span><br><span class="line"><span class="comment">    * 快指针到达终点时，慢指针到达中间</span></span><br><span class="line"><span class="comment">    * 长度为奇数，有中间节点；</span></span><br><span class="line"><span class="comment">    * 长度为偶数，中间节点 len/2+1</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printMiddle</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Node slow_ptr = head;</span><br><span class="line">        Node fast_ptr = head;</span><br><span class="line">        <span class="keyword">if</span> (head != <span class="keyword">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// fast &amp;&amp; fast.next不为 null,</span></span><br><span class="line">            <span class="comment">// null.next会报错。</span></span><br><span class="line">            <span class="keyword">while</span> (fast_ptr != <span class="keyword">null</span> &amp;&amp; fast_ptr.next != <span class="keyword">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                fast_ptr = fast_ptr.next.next;</span><br><span class="line">                slow_ptr = slow_ptr.next;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"The middle element is ["</span> +</span><br><span class="line">                    slow_ptr.data + <span class="string">"] \n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Inserts a new Node at front of the list. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> new_data)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">		<span class="comment">/* 1 &amp; 2: Allocate the Node &amp;</span></span><br><span class="line"><span class="comment">				Put in the data*/</span></span><br><span class="line">        Node new_node = <span class="keyword">new</span> Node(new_data);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* 3. Make next of new Node as head */</span></span><br><span class="line">        new_node.next = head;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* 4. Move the head to point to new Node */</span></span><br><span class="line">        head = new_node;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* This function prints contents of linked list</span></span><br><span class="line"><span class="comment">    starting from the given node */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printList</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Node tnode = head;</span><br><span class="line">        <span class="keyword">while</span> (tnode != <span class="keyword">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.print(tnode.data+<span class="string">"-&gt;"</span>);</span><br><span class="line">            tnode = tnode.next;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"NULL"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        LinkedList llist = <span class="keyword">new</span> LinkedList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">5</span>; i&gt;<span class="number">0</span>; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            llist.push(i);</span><br><span class="line">            llist.printList();</span><br><span class="line">            llist.printMiddle();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>运行结果：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">5-&gt;NULL</span><br><span class="line">The middle element is [5] </span><br><span class="line"></span><br><span class="line">4-&gt;5-&gt;NULL</span><br><span class="line">The middle element is [5] </span><br><span class="line"></span><br><span class="line">3-&gt;4-&gt;5-&gt;NULL</span><br><span class="line">The middle element is [4] </span><br><span class="line"></span><br><span class="line">2-&gt;3-&gt;4-&gt;5-&gt;NULL</span><br><span class="line">The middle element is [4] </span><br><span class="line"></span><br><span class="line">1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</span><br><span class="line">The middle element is [3]</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -463,14 +453,38 @@
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/linkedlist/" rel="tag"># linkedlist</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/09/vue-js/" rel="next" title="vue.js">
+                <i class="fa fa-chevron-left"></i> vue.js
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -480,288 +494,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Scott Shen">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Scott Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/17/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-17T07:44:31+08:00">
-                2019-05-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/17/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/Laravel-websockets/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Scott Shen">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Scott Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/16/Laravel-websockets/" itemprop="url">Laravel websockets</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T07:00:55+08:00">
-                2019-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tech/" itemprop="url" rel="index">
-                    <span itemprop="name">Tech</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Laravel 配合laravel-echo 使用 websockets</p>
-<p>参考<br><a href="https://docs.beyondco.de/laravel-websockets/" target="_blank" rel="noopener">Laravel Websockets</a><br><a href="https://learnku.com/docs/laravel/5.8/broadcasting/3914" target="_blank" rel="noopener">广播系统</a><br><a href="https://pusher.com/tutorials/chat-laravel" target="_blank" rel="noopener">Build a chat app with laravel</a><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/16/Laravel-websockets/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
 
 
           </div>
@@ -769,6 +506,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1020,6 +761,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
