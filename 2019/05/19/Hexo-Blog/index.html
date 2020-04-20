@@ -133,7 +133,7 @@
 <meta property="og:site_name" content="Scott Blog">
 <meta property="og:description" content="Hexo 博客的搭建参考：  Hexo git多人协作 theme nexT theme nexT github  安装前提 Node.js git  npm install -g hexo-cli">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-26T05:23:33.063Z">
+<meta property="og:updated_time" content="2020-04-20T13:10:47.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo Blog">
 <meta name="twitter:description" content="Hexo 博客的搭建参考：  Hexo git多人协作 theme nexT theme nexT github  安装前提 Node.js git  npm install -g hexo-cli">
@@ -446,6 +446,7 @@
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>__config.yml<br><a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">详细配置</a></p>
 <h3 id="nexT主题安装"><a href="#nexT主题安装" class="headerlink" title="nexT主题安装"></a>nexT主题安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
 <p><code>theme: next</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动本地服务器，预览</span></span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
 <h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 推送到 dev远程分支</span></span><br><span class="line">$ git push origin dev</span><br><span class="line"></span><br><span class="line">$ git checkout -b branch-name origin/branch-name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">$ git branch -d (branchname)</span><br></pre></td></tr></table></figure>
 <p>__config.yml<br>部署到主分支<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line">  <span class="comment"># repo: https://gh_token@github.com/Scott-feng/scott-feng.github.io.git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:Scott-feng/scott-feng.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean </span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
@@ -568,7 +569,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -666,7 +667,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
